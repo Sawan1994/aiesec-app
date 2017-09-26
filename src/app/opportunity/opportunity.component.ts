@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./opportunity.component.css']
 })
 export class OpportunityComponent implements OnInit {
-  opportunityDetails: Object = {};
+  opportunityDetails: Object;
   prerequisitesDetails: Array<Object>;
   skills: Object;
   languages: Object;
@@ -26,7 +26,7 @@ export class OpportunityComponent implements OnInit {
   getOpportunity() {
     const id = 526;
     // tslint:disable-next-line:max-line-length
-    const url = 'https://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities/' + id + '?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c&with_translations=true';
+    const url = 'http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities/' + id + '?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c&with_translations=true';
 
     this.http.get(url).subscribe(data => {
       console.log(data);
@@ -49,7 +49,7 @@ export class OpportunityComponent implements OnInit {
       'REQUIRED': [],
       'PREFERRED': []
     };
-    if (this.opportunityDetails['skills']) {
+    if(this.opportunityDetails['skills']){
       for (const skill of this.opportunityDetails['skills']) {
         if (skill['option'] === 'required') {
           this.skills['REQUIRED'].push(skill['name']);
@@ -63,7 +63,7 @@ export class OpportunityComponent implements OnInit {
       'REQUIRED': [],
       'PREFERRED': []
     };
-    if (this.opportunityDetails['languages']) {
+    if(this.opportunityDetails['languages']){
       for (const language of this.opportunityDetails['languages']) {
         if (language['option'] === 'required') {
           this.languages['REQUIRED'].push(language['name']);
@@ -77,7 +77,7 @@ export class OpportunityComponent implements OnInit {
       'REQUIRED': [],
       'PREFERRED': []
     };
-    if (this.opportunityDetails['nationalities']) {
+    if(this.opportunityDetails['nationalities']){
       for (const nationality of this.opportunityDetails['nationalities']) {
         if (nationality['option'] === 'required') {
           this.nationalities['REQUIRED'].push(nationality['name']);
@@ -91,7 +91,7 @@ export class OpportunityComponent implements OnInit {
       'REQUIRED': [],
       'PREFERRED': []
     };
-    if (this.opportunityDetails['backgrounds']) {
+    if(this.opportunityDetails['backgrounds']){
       for (const background of this.opportunityDetails['backgrounds']) {
         if (background['option'] === 'required') {
           this.backgrounds['REQUIRED'].push(background['name']);
