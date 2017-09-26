@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./opportunity.component.css']
 })
 export class OpportunityComponent implements OnInit {
-  opportunityDetails: Object;
+  opportunityDetails: Object = {};
   prerequisitesDetails: Array<Object>;
   skills: Object;
   languages: Object;
