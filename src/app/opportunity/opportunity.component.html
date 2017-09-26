@@ -15,7 +15,7 @@
   </div>
   <div class="details-block">
     <h4>Sustainable development goal</h4>
-    <div *ngIf="opportunityDetails['sdg_info']['sdg_target']['description']">
+    <div *ngIf="opportunityDetails['sdg_info'] || opportunityDetails['sdg_info']['sdg_target'] || opportunityDetails['sdg_info']['sdg_target']['description']">
       <h4>Quality Education</h4>
       <div class="row">
         <p class="col-xs-8">{{opportunityDetails['sdg_info']['sdg_target']['description']}}</p>
